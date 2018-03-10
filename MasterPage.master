@@ -1,0 +1,111 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .style1
+        {
+            width: 100%;
+            height: 592px;
+        }
+        .style4
+        {
+            width: 191px;
+        }
+        </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="header">
+
+                <asp:Image ID="Image1" runat="server" Height="276px" ImageUrl="~/image/4.PNG" 
+                    Width="1483px" />
+
+    </div>
+    <table class="style1">
+        <tr>
+            <td class="style4" bgcolor="#6666FF">
+                <asp:TreeView ID="TreeView1" runat="server" ImageSet="Msdn" NodeIndent="10">
+                    <HoverNodeStyle BackColor="#CCCCCC" BorderColor="#888888" BorderStyle="Solid" 
+                        Font-Underline="True" />
+                    <Nodes>
+                        <asp:TreeNode NavigateUrl="~/admin.aspx" Text="主页" Value="主页"></asp:TreeNode>
+                        <asp:TreeNode NavigateUrl="~/admin_Passwd.aspx" Text="更改管理员登录密码" 
+                            Value="更改管理员登录密码"></asp:TreeNode>
+                        <asp:TreeNode Text="管理读者信息" Value="管理读者信息" SelectAction="Expand">
+                            <asp:TreeNode Text="查询、管理读者信息" Value="查询读者信息" 
+                                NavigateUrl="~/readers_count.aspx"></asp:TreeNode>
+                            <asp:TreeNode Text="新建读者信息" Value="新建读者信息" NavigateUrl="~/readers_add.aspx"></asp:TreeNode>
+                        </asp:TreeNode>
+                        <asp:TreeNode Text="管理书籍信息" Value="管理书籍信息" SelectAction="Expand">
+                            <asp:TreeNode Text="查询书籍信息" Value="查询书籍信息" NavigateUrl="~/book_count.aspx"></asp:TreeNode>
+                            <asp:TreeNode Text="添加书籍" Value="添加书籍" NavigateUrl="~/book_add.aspx"></asp:TreeNode>
+                            <asp:TreeNode Text="修改书籍信息" Value="修改书籍信息" SelectAction="Expand">
+                                <asp:TreeNode Text="库存管理" Value="库存管理" NavigateUrl="~/book_stock.aspx">
+                                    <asp:TreeNode NavigateUrl="~/book_stock_bookname.aspx" Text="通过书籍名更改" 
+                                        Value="通过书籍名更改"></asp:TreeNode>
+                                    <asp:TreeNode NavigateUrl="~/book_stock_bookid.aspx" Text="通过书籍ID更改" 
+                                        Value="通过书籍ID更改"></asp:TreeNode>
+                                </asp:TreeNode>
+                                <asp:TreeNode Text="书籍推荐" Value="书籍推荐" NavigateUrl="~/book_recommend.aspx"></asp:TreeNode>
+                            </asp:TreeNode>
+                        </asp:TreeNode>
+                        <asp:TreeNode Text="管理借阅" Value="管理借阅" SelectAction="Expand">
+                            <asp:TreeNode Text="查看预约借阅" Value="查看预约借阅" NavigateUrl="~/see_re_borrow.aspx"></asp:TreeNode>
+                            <asp:TreeNode Text="查看借阅信息" Value="借阅信息" NavigateUrl="~/see_borrow.aspx"></asp:TreeNode>
+                            <asp:TreeNode Text="查看还书信息" Value="还书信息" NavigateUrl="~/see_return.aspx"></asp:TreeNode>
+                            <asp:TreeNode NavigateUrl="~/borrow_add.aspx" Text="添加借阅信息" Value="添加借阅信息">
+                            </asp:TreeNode>
+                        </asp:TreeNode>
+                    </Nodes>
+                    <NodeStyle Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" 
+                        HorizontalPadding="5px" NodeSpacing="1px" VerticalPadding="2px" />
+                    <ParentNodeStyle Font-Bold="False" />
+                    <SelectedNodeStyle BackColor="White" BorderColor="#888888" BorderStyle="Solid" 
+                        BorderWidth="1px" Font-Underline="False" HorizontalPadding="3px" 
+                        VerticalPadding="1px" />
+                </asp:TreeView>
+            </td>
+            <td>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    <p>
+                        <br />
+                    </p>
+                    <p>
+                    </p>
+                    <p>
+                    </p>
+                    <p>
+                    </p>
+                    <p>
+                    </p>
+                    <p>
+                    </p>
+                    <p>
+                    </p>
+                    <p>
+                    </p>
+                    <p>
+                    </p>
+                    <p>
+                    </p>
+                    <p>
+                    </p>
+                    <p>
+                    </p>
+                    <p>
+                    </p>
+                    <p>
+                    </p>
+                </asp:ContentPlaceHolder>
+            </td>
+        </tr>
+    </table>
+    </form>
+</body>
+</html>
