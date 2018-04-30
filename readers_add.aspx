@@ -19,6 +19,6 @@
         ValidationGroup="1" />
     &nbsp;&nbsp;
     <asp:Button ID="Button2" runat="server" Text="返回" onclick="Button2_Click" 
-        Height="27px" Width="55px" />
+         />
 </asp:Content>
 

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="~/admin.aspx" title="后台管理"  description="">
+    <siteMapNode url="" title="管理员管理"  description="">
+    <siteMapNode url="admin_Passwd.aspx" title="修改管理员密码"  description="" />
+    </siteMapNode>
+    <siteMapNode url="" title="学生信息管理"  description="">
+    <siteMapNode url="~/readers_count.aspx" title="管理学生信息"  description="" />
+    </siteMapNode>
+    <siteMapNode url="" title="书籍管理"  description="">
+      <siteMapNode url="book_count.aspx" title="查看全部书籍"  description="" />
+      <siteMapNode url="~/book_recommend.aspx" title="书籍推荐"  description="" />
+      <siteMapNode url="~/book_stock.aspx" title="库存管理"  description="" >
+      <siteMapNode url="book_stock_bookid.aspx" title="通过id管理" description="" />
+      <siteMapNode url="book_stock_bookname.aspx" title="通过书名管理" description="" />
+      </siteMapNode>
+    </siteMapNode>
+      <siteMapNode url="~/" title="借阅信息管理"  description="" >
+      <siteMapNode url="~/see_re_borrow.aspx" title="查看预约借阅"  description="" />
+      <siteMapNode url="~/see_borrow.aspx" title="查看借阅"  description="" />
+      <siteMapNode url="~/see_return.aspx" title="查看归还"  description="" />
+      <siteMapNode url="~/borrow_add.aspx" title="手动借阅"  description="" />
+      </siteMapNode>
+    </siteMapNode>
+</siteMap>

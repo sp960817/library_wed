@@ -12,7 +12,6 @@ public partial class login : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         TextBox1.Focus();
-        Button2.CausesValidation = false;
     }
 
     private int ExistAdmin(string adminName, string adminPassword)

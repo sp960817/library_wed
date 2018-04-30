@@ -1,7 +1,4 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="book_count.aspx.cs" Inherits="book_count" %>
-
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server" >
-</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
      <asp:GridView ID="GridView1" runat="server"  DataKeyNames="书籍ID" 
         onselectedindexchanging="GridView1_SelectedIndexChanging" 
@@ -28,30 +25,5 @@
          <SortedDescendingCellStyle BackColor="#CAC9C9" />
          <SortedDescendingHeaderStyle BackColor="#000065" />
 </asp:GridView>
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
 </asp:Content>
 

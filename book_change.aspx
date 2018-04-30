@@ -6,18 +6,9 @@
     {
         width: 100%;
     }
-    .style6
-    {
-        height: 61px;
-    }
-    .style7
-    {
-        height: 81px;
-    }
 </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <p>
         <asp:GridView ID="GridView1" runat="server" 
             onselectedindexchanged="GridView1_SelectedIndexChanged" BackColor="White" 
             BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" 
@@ -33,10 +24,7 @@
             <SortedDescendingCellStyle BackColor="#CAC9C9" />
             <SortedDescendingHeaderStyle BackColor="#000065" />
         </asp:GridView>
-    </p>
-    <p>
-        &nbsp;</p>
-    <p>
+  
         <table class="style5">
             <tr>
                 <td class="style6">
@@ -76,8 +64,5 @@
                 </td>
             </tr>
         </table>
-    </p>
-    <p>
-        &nbsp;</p>
 </asp:Content>
 
