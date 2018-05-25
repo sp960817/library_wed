@@ -8,6 +8,8 @@ using MySql.Data.MySqlClient;
 using System.Data;
 using System.Web.UI;
 using System.Text;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 /// <summary>
 ///SqlHelper 的摘要说明
 /// </summary>
@@ -97,5 +99,23 @@ public class SqlHelper
         //这里不能关闭连接CloseConnection()，要在调用中关闭
         cmd.Parameters.Clear();
         return reader;
+    }
+    public static DataSet GetDataSet(string sqlStr)
+    {
+        MySqlDataAdapter da = new MySqlDataAdapter();
+        Openconn();
+        cmd.CommandType = CommandType.Text;
+        cmd.CommandText = sqlStr;
+        da.SelectCommand = cmd;
+        DataSet ds = new DataSet();
+        da.Fill(ds);
+        Closeconn();
+        return ds;//返回DataSet对象
+    }
+    public static void Show(GridView GridView1, string mysql)
+    {
+        DataSet ds = SqlHelper.GetDataSet(mysql);
+        GridView1.DataSource = ds;
+        GridView1.DataBind();
     }
 }

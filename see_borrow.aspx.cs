@@ -17,20 +17,11 @@ public partial class see_borrow : System.Web.UI.Page
         if (!IsPostBack)
         {
             Label1.Visible = false;
-            GB();
+            string mysql = "SELECT id AS 借阅ID,bookid AS 书籍ID,bookname AS 书籍名称,readerid AS 读者ID,borrowdate AS 借阅日期,isreturn AS 是否归还 FROM borrow_record ORDER BY isreturn ASC";
+            SqlHelper.Show(GridView1, mysql);
             Gt();
         }
        
-    }
-    private void GB()
-    {
-        string mysql = "SELECT id AS 借阅ID,bookid AS 书籍ID,bookname AS 书籍名称,readerid AS 读者ID,borrowdate AS 借阅日期,isreturn AS 是否归还 FROM borrow_record ORDER BY isreturn ASC";
-        //string mysql = "SELECT * FROM borrow_record";
-        MySqlDataReader dr = SqlHelper.GetExecuteReader(mysql);
-        GridView1.DataSource = dr;
-        GridView1.DataBind();
-        dr.Close();
-        SqlHelper.Closeconn();
     }
     protected void GridView1_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
     {
@@ -59,7 +50,8 @@ public partial class see_borrow : System.Web.UI.Page
                     string mysql2 = "UPDATE system_book SET bookstock = bookstock+1 WHERE bookid = '" + bookid + "'";
                     SqlHelper.GetExecuteNonQuery(mysql2);
                     Response.Write("<script>alert('归还成功');</script>");
-                    GB();
+                    string mysql11 = "SELECT id AS 借阅ID,bookid AS 书籍ID,bookname AS 书籍名称,readerid AS 读者ID,borrowdate AS 借阅日期,isreturn AS 是否归还 FROM borrow_record ORDER BY isreturn ASC";
+                    SqlHelper.Show(GridView1, mysql11);
                     Gt();
                 }
                 else
@@ -108,7 +100,8 @@ public partial class see_borrow : System.Web.UI.Page
         if (count > 0)
         {
             Response.Write("<script langauge=javascript>alert('删除成功')</script>");
-            GB();
+            string mysql11 = "SELECT id AS 借阅ID,bookid AS 书籍ID,bookname AS 书籍名称,readerid AS 读者ID,borrowdate AS 借阅日期,isreturn AS 是否归还 FROM borrow_record ORDER BY isreturn ASC";
+            SqlHelper.Show(GridView1, mysql11);
             Gt();
         }
         else
@@ -116,5 +109,11 @@ public partial class see_borrow : System.Web.UI.Page
             Response.Write("<script langauge=javascript>alert('失败')</script>");
         }
     }
-   
+
+    protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        GridView1.PageIndex = e.NewPageIndex;
+        string mysql = "SELECT id AS 借阅ID,bookid AS 书籍ID,bookname AS 书籍名称,readerid AS 读者ID,borrowdate AS 借阅日期,isreturn AS 是否归还 FROM borrow_record ORDER BY isreturn ASC";
+        SqlHelper.Show(GridView1, mysql);
+    }
 }

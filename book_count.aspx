@@ -4,7 +4,8 @@
         onselectedindexchanging="GridView1_SelectedIndexChanging" 
     onselectedindexchanged="GridView1_SelectedIndexChanged" BackColor="White" 
          BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" 
-         GridLines="Vertical"  >
+         GridLines="Vertical" AllowPaging="True" 
+         onpageindexchanging="GridView1_PageIndexChanging" PageSize="5"  >
          <AlternatingRowStyle BackColor="#DCDCDC" />
         <Columns>
             <asp:CommandField ShowSelectButton="True" />

@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using MySql.Data.MySqlClient;
 using System.Configuration;
 using System.Web.Configuration;
+using System.Data;
 public partial class book_count : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
@@ -17,21 +18,14 @@ public partial class book_count : System.Web.UI.Page
         }
         if (!IsPostBack)
         {
-            string mysql = "SELECT bookid AS 书籍ID,bookname AS 书籍名称,bookstyle AS 书籍分类,bookstock AS 库存,bookpub AS 出版社,bookpubdate AS 出版时间,isborrowed AS 是否被预约借阅,booklv AS 推荐等级 FROM system_book";
-            //string mysql = "SELECT * FROM system_book";
-            MySqlDataReader dr = SqlHelper.GetExecuteReader(mysql);
-            GridView1.DataSource = dr;
-            GridView1.DataBind();
-            dr.Close();
-            SqlHelper.Closeconn();
+            string mysql = "SELECT bookid AS 书籍ID,bookname AS 书籍名称,bookstyle AS 书籍分类,bookauther AS 作者,bookstock AS 库存,bookpub AS 出版社,bookpubdate AS 出版时间,booklv AS 推荐等级 FROM system_book";
+            Show(mysql);
         }
         
     }
     protected void GridView1_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
     {
         string id = GridView1.DataKeys[e.NewSelectedIndex].Values[0].ToString();
-        
-      //  string id = GridView1.Rows[e.NewSelectedIndex].Cells[1].Text;
         Response.Redirect("choose_book.aspx?id="+id+"");
         
     }
@@ -49,5 +43,18 @@ public partial class book_count : System.Web.UI.Page
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {
 
+    }
+    private void Show(string mysql) 
+    {
+        DataSet ds = SqlHelper.GetDataSet(mysql);
+        GridView1.DataSource = ds;
+        GridView1.DataKeyNames = new string[] { "书籍ID" };
+        GridView1.DataBind();
+    }
+    protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        GridView1.PageIndex = e.NewPageIndex;
+        string mysql = "SELECT bookid AS 书籍ID,bookname AS 书籍名称,bookstyle AS 书籍分类,bookauther AS 作者,bookstock AS 库存,bookpub AS 出版社,bookpubdate AS 出版时间,booklv AS 推荐等级 FROM system_book";
+        Show(mysql);
     }
 }

@@ -16,11 +16,8 @@ public partial class see_re_borrow : System.Web.UI.Page
         if (!IsPostBack)
         {
             string mysql = "SELECT id AS 借阅ID,bookid AS 书籍ID,bookname AS 书籍名称,readerid AS 读者ID,re_borrowdate AS 预约借阅日期 FROM re_borrow_record";
-            MySqlDataReader dr = SqlHelper.GetExecuteReader(mysql);
-            GridView1.DataSource = dr;
-            GridView1.DataBind();
-            dr.Close();
-            SqlHelper.Closeconn();
+            SqlHelper.Show(GridView1, mysql);
+            GridView1.DataKeyNames = new string[] { "借阅ID" };
            
         }
     }
@@ -67,5 +64,29 @@ public partial class see_re_borrow : System.Web.UI.Page
             SqlHelper.Closeconn();
         }
 
+    }
+    protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        GridView1.PageIndex = e.NewPageIndex;
+        string mysql = "SELECT id AS 借阅ID,bookid AS 书籍ID,bookname AS 书籍名称,readerid AS 读者ID,re_borrowdate AS 预约借阅日期 FROM re_borrow_record";
+        SqlHelper.Show(GridView1, mysql);
+    }
+    protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        string id = GridView1.DataKeys[e.RowIndex].Value.ToString();
+        string mysql = "DELETE  FROM re_borrow_record WHERE id = '" + id + "'";
+        int dl = SqlHelper.GetExecuteNonQuery(mysql);
+        if (dl > 0)
+        {
+            string mysql2 = "SELECT id AS 借阅ID,bookid AS 书籍ID,bookname AS 书籍名称,readerid AS 读者ID,re_borrowdate AS 预约借阅日期 FROM re_borrow_record";
+            SqlHelper.Show(GridView1, mysql2);
+            SqlHelper.MsgBox("删除成功", Page);
+            SqlHelper.Closeconn();
+        }
+        else
+        {
+            SqlHelper.MsgBox("删除失败", Page);
+            SqlHelper.Closeconn();
+        }
     }
 }

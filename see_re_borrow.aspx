@@ -5,11 +5,15 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <asp:GridView ID="GridView1" runat="server" DataKeyNames="借阅ID" 
     onselectedindexchanging="GridView1_SelectedIndexChanging" BackColor="White" 
-    BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical" 
+    BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" 
+        GridLines="Vertical" AllowPaging="True" 
+        onpageindexchanging="GridView1_PageIndexChanging" 
+        onrowdeleting="GridView1_RowDeleting" 
     >
         <AlternatingRowStyle BackColor="#DCDCDC" />
         <Columns>
             <asp:CommandField SelectText="借阅" ShowSelectButton="True" />
+            <asp:CommandField ShowDeleteButton="True" />
         </Columns>
         <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
         <HeaderStyle BackColor="#000084" Font-Bold="True" ForeColor="White" />

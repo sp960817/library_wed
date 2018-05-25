@@ -7,7 +7,8 @@
         BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" 
         GridLines="Vertical" DataKeyNames="借阅ID" 
         onselectedindexchanging="GridView1_SelectedIndexChanging" 
-        onrowdeleting="GridView1_RowDeleting">
+        onrowdeleting="GridView1_RowDeleting" AllowPaging="True" 
+        onpageindexchanging="GridView1_PageIndexChanging">
         <AlternatingRowStyle BackColor="#DCDCDC" />
         <Columns>
             <asp:CommandField SelectText="归还" ShowSelectButton="True" />
