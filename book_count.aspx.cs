@@ -18,7 +18,7 @@ public partial class book_count : System.Web.UI.Page
         }
         if (!IsPostBack)
         {
-            string mysql = "SELECT bookid AS 书籍ID,bookname AS 书籍名称,bookstyle AS 书籍分类,bookauther AS 作者,bookstock AS 库存,bookpub AS 出版社,bookpubdate AS 出版时间,booklv AS 推荐等级 FROM system_book";
+            string mysql = "SELECT bookid AS 书籍ID,bookname AS 书籍名称,bookstyle AS 书籍分类,bookauther AS 作者,bookstock AS 库存,bookpub AS 出版社,DATE_FORMAT(bookpubdate,'%Y-%m-%d  ') AS 出版时间,booklv AS 推荐等级 FROM system_book";
             Show(mysql);
         }
         
@@ -54,7 +54,7 @@ public partial class book_count : System.Web.UI.Page
     protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
         GridView1.PageIndex = e.NewPageIndex;
-        string mysql = "SELECT bookid AS 书籍ID,bookname AS 书籍名称,bookstyle AS 书籍分类,bookauther AS 作者,bookstock AS 库存,bookpub AS 出版社,bookpubdate AS 出版时间,booklv AS 推荐等级 FROM system_book";
+        string mysql = "SELECT bookid AS 书籍ID,bookname AS 书籍名称,bookstyle AS 书籍分类,bookauther AS 作者,bookstock AS 库存,bookpub AS 出版社,DATE_FORMAT(bookpubdate,'%Y-%m-%d  ') AS 出版时间,booklv AS 推荐等级 FROM system_book";
         Show(mysql);
     }
 }

@@ -40,8 +40,6 @@
                     </asp:TreeView>
                 </div>
                 <div class="logined">
-                    管理员：<asp:Label ID="lblAdminName" runat="server"></asp:Label><br />
-                    <asp:LinkButton ID="lbtnExit" runat="server" OnClick="lbtnExit_Click">退出后台管理</asp:LinkButton>
                 </div>
                 <!--左侧边栏-结束-->
             </div>

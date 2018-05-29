@@ -20,9 +20,16 @@ public partial class book_stock_bookname : System.Web.UI.Page
     {
         string mysql = "SELECT bookstock FROM system_book WHERE bookname = '"+TextBox1.Text+"'";
         MySqlDataReader dr = SqlHelper.GetExecuteReader(mysql);
-        dr.Read();
-        Label1.Text = dr.GetString(0);
-        SqlHelper.Closeconn();
+        if (dr.Read())
+        {
+            Label1.Text = dr.GetString(0);
+            SqlHelper.Closeconn();
+        }
+        else
+        {
+            SqlHelper.MsgBox("无此书名", Page);
+        }
+       
 
         
         

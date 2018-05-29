@@ -1,6 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="see_borrow.aspx.cs" Inherits="see_borrow" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="see_borrow.aspx.cs" Inherits="see_borrow"  %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<%# Eval("借阅日期", "{0:yyyy-mm-dd}")%> 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <asp:GridView ID="GridView1" runat="server" BackColor="White" 
@@ -8,7 +9,7 @@
         GridLines="Vertical" DataKeyNames="借阅ID" 
         onselectedindexchanging="GridView1_SelectedIndexChanging" 
         onrowdeleting="GridView1_RowDeleting" AllowPaging="True" 
-        onpageindexchanging="GridView1_PageIndexChanging">
+        onpageindexchanging="GridView1_PageIndexChanging" >
         <AlternatingRowStyle BackColor="#DCDCDC" />
         <Columns>
             <asp:CommandField SelectText="归还" ShowSelectButton="True" />

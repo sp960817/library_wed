@@ -34,6 +34,6 @@ public partial class _Default : System.Web.UI.Page
     }
     protected void Button2_Click(object sender, EventArgs e)
     {
-        Response.Redirect("readers_count");
+        Response.Redirect("readers_count.aspx");
     }
 }

@@ -17,7 +17,7 @@
       <siteMapNode url="book_stock_bookname.aspx" title="通过书名管理" description="" />
       </siteMapNode>
     </siteMapNode>
-      <siteMapNode url="~/" title="书籍借阅管理"  description="" >
+      <siteMapNode url="" title="书籍借阅管理"  description="" >
       <siteMapNode url="~/see_re_borrow.aspx" title="查看预约借阅"  description="" />
       <siteMapNode url="~/see_borrow.aspx" title="查看借阅"  description="" />
       <siteMapNode url="~/see_return.aspx" title="查看归还"  description="" />

@@ -21,9 +21,18 @@ public partial class boook_stock_bookid : System.Web.UI.Page
     {
         string mysql = "SELECT bookstock FROM system_book WHERE bookid = '" + TextBox1.Text + "'";
         MySqlDataReader dr = SqlHelper.GetExecuteReader(mysql);
-        dr.Read();
-        Label1.Text = dr.GetString(0);
-        SqlHelper.Closeconn();
+        if (dr.Read())
+        {
+            Label1.Text = dr.GetString(0);
+            dr.Close();
+            SqlHelper.Closeconn();
+        }
+        else
+        {
+            dr.Close();
+            SqlHelper.MsgBox("无此ID", Page);
+        }
+        
     }
     protected void Button1_Click(object sender, EventArgs e)
     {

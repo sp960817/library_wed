@@ -17,7 +17,7 @@ public partial class reader_count : System.Web.UI.Page
         }
         if (!IsPostBack)
         {
-            string mysql = "SELECT readerid AS 读者ID,readerpw AS 密码,readername AS 姓名 FROM system_readers";
+            string mysql = "SELECT readerid AS 读者ID,readername AS 姓名 FROM system_readers";
             // string mysql = "SELECT * FROM system_readers";
             MySqlDataReader dr = SqlHelper.GetExecuteReader(mysql);
             GridView1.DataSource = dr;

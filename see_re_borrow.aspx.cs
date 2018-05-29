@@ -15,7 +15,7 @@ public partial class see_re_borrow : System.Web.UI.Page
         }
         if (!IsPostBack)
         {
-            string mysql = "SELECT id AS 借阅ID,bookid AS 书籍ID,bookname AS 书籍名称,readerid AS 读者ID,re_borrowdate AS 预约借阅日期 FROM re_borrow_record";
+            string mysql = "SELECT id AS 借阅ID,bookid AS 书籍ID,bookname AS 书籍名称,readerid AS 读者ID,,DATE_FORMAT(re_borrowdate,'%Y-%m-%d  ') AS 预约借阅日期 FROM re_borrow_record";
             SqlHelper.Show(GridView1, mysql);
             GridView1.DataKeyNames = new string[] { "借阅ID" };
            
@@ -45,12 +45,12 @@ public partial class see_re_borrow : System.Web.UI.Page
                 if (count1 > 0)
                 {
                     Response.Write("<script langauge=javascript>alert('借阅成功')</script>");
-                    string mysql3 = "SELECT id AS 借阅ID,bookid AS 书籍ID,bookname AS 书籍名称,readerid AS 读者ID,re_borrowdate AS 预约借阅日期 FROM re_borrow_record";
-                    MySqlDataReader dr1 = SqlHelper.GetExecuteReader(mysql3);
+                    string mysql3 = "SELECT id AS 借阅ID,bookid AS 书籍ID,bookname AS 书籍名称,readerid AS 读者ID,DATE_FORMAT(re_borrowdate,'%Y-%m-%d  ') AS 预约借阅日期 FROM re_borrow_record";
+                    /*MySqlDataReader dr1 = SqlHelper.GetExecuteReader(mysql3);
                     GridView1.DataSource = dr1;
                     GridView1.DataBind();
-                    dr.Close();
-                    SqlHelper.Closeconn();
+                    dr.Close();*/
+                    SqlHelper.Show(GridView1, mysql3);
                 }
                 else
                 {
